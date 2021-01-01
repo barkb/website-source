@@ -27,5 +27,6 @@ struct BarkettWorld: Website {
 
 // This will generate your website using the built-in Foundation theme:
 try BarkettWorld().publish(
-    withTheme: .primary
+    withTheme: .primary,
+    deployedUsing: .gitHub("barkb/personal-website", useSSH: false)
     )
