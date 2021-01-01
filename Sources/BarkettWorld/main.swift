@@ -18,7 +18,7 @@ struct BarkettWorld: Website {
     }
 
     // Update these properties to configure your website:
-    var url = URL(string: "https://your-website-url.com")!
+    var url = URL(string: "https://benbarkett.com")!
     var name = "Ben Barkett"
     var description = "Hello! I'm Ben Barkett: an aspiring Software Developer and graduating senior with degrees in Computer Science and Economics."
     var language: Language { .english }
