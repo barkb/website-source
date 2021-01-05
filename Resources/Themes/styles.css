@@ -4,9 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Condensed&family=Roboto+Slab&display=swap');
 .main {
     margin-top: 100px;
-    margin-left: 320px;
+    width: 80%;
+    margin-left: 20%;
    /* Same as the width of the sidebar */
     padding: 0px 10px;
+    display: block;
+    
 }
 
 body {
@@ -56,14 +59,14 @@ a {
 /* SIDENAV */
 .sidenav {
     height: auto;
-    width: 300px;
+    width: 20%;
     position: fixed;
    /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1;
+    /*z-index: 1;*/
     top: 0;
     left: 0;
     margin-left: 20px;
-    overflow-x: hidden;
+    overflow-x: visible;
     padding-top: 20px;
     text-align: right;
    /*border-right: 5px #282a36 solid;
@@ -217,6 +220,7 @@ a .contact {
 }
 footer {
     color: #f8f8f2;
+    text-align: center;
 }
 @media {
     body {
@@ -233,10 +237,17 @@ footer {
         background-color: #282a36;
    }
 }
-@media(max-width: 600px) {
+@media(max-width: 1000px) {
     .wrapper {
         padding: 40px 20px;
    }
+    .sidenav {
+        position: auto;
+        width: 100px;
+    }
+    .main {
+        overflow-x: scroll;
+    }
 }
 @media screen and (max-height: 450px) {
     .sidenav {
