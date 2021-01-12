@@ -1,36 +1,128 @@
+/* COLORS:
+ background: #282a36
+ lighter background: #44475a
+ comment/ lighter lighter background: #6272a4
+ foreground: #f8f8f2
+ blue: #8be9fd
+ green: #50fa7b
+ orange: #ffb86c
+ pink: #ff79c6
+ purple: #bd93f9
+ red: #ff5555
+ yellow: #f1fa8c */
 
-/* COLORS: background: #282a36 lighter background: #44475a comment/ lighter lighter background: #6272a4 foreground: #f8f8f2 blue: #8be9fd green: #50fa7b orange: #ffb86c pink: #ff79c6 purple: #bd93f9 red: #ff5555 yellow: #f1fa8c */
-/* Style page content */
+/* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Condensed&family=Roboto+Slab&display=swap');
-.main {
-    margin-top: 100px;
-    width: 80%;
-    margin-left: 20%;
-   /* Same as the width of the sidebar */
-    padding: 0px 10px;
-    display: block;
-    
+
+* {
+    /* Makes sure padding and border are included in total height/width of elements */
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Roboto Slab', serif;
     background-color: #282a36;
     color: #f8f8f2;
-    text-align: center;
+    text-align: left;
     line-height: 1.5em;
 }
 
-.wrapper {
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 40px;
-    text-align: left;
-}
-#layout {
-    padding: 0.25em;
+/*******************
+* Side  Navigation *
+********************/
+
+.sidenav {
+    height: auto;
+    width: 25%;
+    float: left;
+    padding-top: 5%;
+    text-align: right;
 }
 
+.sidenav-header{
+    padding: 10px 10px 0px 10px;
+}
+
+.sidenav-header > h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    padding: 0px;
+    color: #bd93f9;
+}
+
+.sidenav-header > p {
+    font-size: 14px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+    /*************************
+    * Side Navigation Links *
+    *************************/
+        nav ul {
+           padding-left: 0px;
+        }
+
+        nav li {
+            font-family: 'Roboto Condensed', sans-serif;
+            display: block;
+            margin: 0 7px;
+            line-height: 1.5em;
+            padding: 5px;
+        }
+
+            nav li > .sidenav-about{
+                color: #8be9fd;
+            }
+                nav li > .sidenav-about:hover{
+                    color: #f8f8f2;
+                    background-color: #8be9fd;
+                    border-radius: 5px;
+                }
+            nav li > .sidenav-posts{
+                color: #ff5555;
+            }
+                nav li > .sidenav-posts:hover{
+                    color: #f8f8f2;
+                    background-color: #ff5555;
+                    border-radius: 5px;
+                }
+            nav li > .sidenav-projects{
+                color: #ffb86c;
+            }
+                nav li > .sidenav-projects:hover{
+                    color: #f8f8f2;
+                    background-color: #ffb86c;
+                    border-radius: 5px;
+                }
+            nav li > .sidenav-contact{
+                color: #ff79c6;
+            }
+                nav li > .sidenav-contact:hover{
+                    color: #f8f8f2;
+                    background-color: #ff79c6;
+                    border-radius: 5px;
+                }
+
+/***************
+* Main Content *
+****************/
+
+.main {
+    width: 75%;
+    float: left;
+    margin-top: 5%;
+    padding: 0% 2%;
+}
+
+
+
+/******************************
+* Basic Text Style Properties *
+*******************************/
 h1 {
     font-family: 'Lato', sans-serif;
     margin-bottom: 20px;
@@ -56,119 +148,26 @@ p > a {
 a {
     color: inherit;
 }
-/* SIDENAV */
-.sidenav {
-    height: auto;
-    width: 20%;
-    position: fixed;
-   /* Fixed Sidebar (stay in place on scroll) */
-    /*z-index: 1;*/
-    top: 0;
-    left: 0;
-    margin-left: 20px;
-    overflow-x: visible;
-    padding-top: 20px;
-    text-align: right;
-   /*border-right: 5px #282a36 solid;
-   */
-}
-    .sidenav a {
-        padding: 6px 8px 6px 16px;
-        text-decoration: none;
-        font-size: 20px;
-        display: block;
-    }
-.sidenav-header{
-    padding: 10px 10px 0px 10px;
-}
-    .sidenav-header > h1 {
-        font-family: 'Roboto Condensed', sans-serif;
-        text-align: right;
-        padding: 0px;
-        color: #bd93f9;
-    }
 
-    .sidenav-header > p {
-        font-size: 14px;
-    }
+/******************************
+ * Item List Style Properties *
+ ******************************/
 
-.sidenav-nav{
-    margin-left: 100px;
-}
-/* The navigation menu links */
-
-nav li {
-    font-family: 'Roboto Condensed', sans-serif;
-    display: inline-block;
-    margin: 0 7px;
+article h1 {
+    
+    font-size: 2.25em;
     line-height: 1.5em;
-    padding: 5px;
 }
 
-    nav li > .sidenav-about{
-        color: #8be9fd;
-    }
-        nav li > .sidenav-about:hover{
-            color: #f8f8f2;
-            background-color: #8be9fd;
-            border-radius: 5px;
-        }
-    nav li > .sidenav-posts{
-        color: #ff5555;
-    }
-        nav li > .sidenav-posts:hover{
-            color: #f8f8f2;
-            background-color: #ff5555;
-            border-radius: 5px;
-        }
-    nav li > .sidenav-projects{
-        color: #ffb86c;
-    }
-        nav li > .sidenav-projects:hover{
-            color: #f8f8f2;
-            background-color: #ffb86c;
-            border-radius: 5px;
-        }
-    nav li > .sidenav-contact{
-        color: #ff79c6;
-    }
-        nav li > .sidenav-contact:hover{
-            color: #f8f8f2;
-            background-color: #ff79c6;
-            border-radius: 5px;
-        }
-/*HEADER*/
-header {
-    background-color: #ffb86c;
-}
-    header .wrapper {
-        padding-top: 30px;
-        padding-bottom: 30px;
-        text-align: center;
-    }
-    header a {
-        text-decoration: none;
-    }
-    header .site-name {
-        font-size: 1.5em;
-        color: #f8f8f2;
-        font-weight: bold;
-    }
-nav {
-    margin-top: 20px;
-}
+/******************************
+ * Item List Style Properties *
+ ******************************/
 
-
-a .contact {
-    color: #ffb86c;
-}
-.description {
-    margin-bottom: 40px;
-}
 .item-list {
     padding-left: 0px;
 
 }
+
 .item-list > li {
     display: block;
     padding: 20px;
@@ -180,6 +179,16 @@ a .contact {
     margin-bottom: 0;
 }
 
+item-list > li img {
+    width: 10%;
+    float: left;
+}
+
+item-list > li article {
+    width: 90%;
+    float: left;
+}
+
 .item-list h1 {
     margin-bottom: 15px;
     font-size: 1.3em;
@@ -188,6 +197,10 @@ a .contact {
 .item-list p {
     margin-bottom: 0;
 }
+/******************************
+ *  Tag List Style Properties *
+ ******************************/
+
 .tag-list {
     margin-bottom: 15px;
     padding-left: 0px;
@@ -206,9 +219,6 @@ a .contact {
 .item-page .tag-list {
     display: inline-block;
 }
-.content {
-    margin-bottom: 40px;
-}
 .browse-all {
     display: block;
     margin-bottom: 30px;
@@ -218,42 +228,33 @@ a .contact {
     margin-right: 10px;
     padding: 6px 10px;
 }
+
+/******************************
+ *   Footer Style Properties  *
+ ******************************/
+
 footer {
     color: #f8f8f2;
     text-align: center;
 }
-@media {
+
+/*******************************
+* @media Responsive Properties *
+********************************/
+
+@media only screen and (max-width: 700px) {
     body {
-        background-color: #282a36;
-   }
-    body, header .site-name {
-        color: #f8f8f2;
-   }
-    
-    .item-list > li {
-        background-color: #44475a;
-   }
-    header {
-        background-color: #282a36;
-   }
-}
-@media(max-width: 1000px) {
-    .wrapper {
-        padding: 40px 20px;
-   }
+        text-align: center;
+    }
     .sidenav {
-        position: auto;
-        width: 100px;
+        width: 100%;
+        text-align: center;
     }
     .main {
-        overflow-x: scroll;
+        width: 100%;
     }
-}
-@media screen and (max-height: 450px) {
-    .sidenav {
-       padding-top: 15px;
-   }
-    .sidenav a {
-       font-size: 18px;
-   }
+    nav li {
+        margin: 7px 0px;
+        padding: 0px;
+    }
 }

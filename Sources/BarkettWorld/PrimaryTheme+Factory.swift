@@ -26,11 +26,10 @@ private struct BWHtmlFactory<Site: Website>: HTMLFactory {
             .lang(context.site.language),
             .head(for: index, on: context.site),
             .body(
+                .sidenav(for: context.site as! BarkettWorld),
                 .wrapper(
-                    .div(.sidenav(for: context.site as! BarkettWorld)),
-                    .div(
                         .class("main"),
-                        .h2("Latest content"),
+                        .h1("Latest content"),
                         .itemList(
                              for: context.allItems(
                                  sortedBy: \.date,
@@ -38,9 +37,8 @@ private struct BWHtmlFactory<Site: Website>: HTMLFactory {
                              ),
                              on: context.site
                          ),
-                        .footer(for: context.site))
-                     )
-                     
+                        .footer(for: context.site)
+                     ) //wrapper
             )
         )
     }
@@ -55,10 +53,15 @@ private struct BWHtmlFactory<Site: Website>: HTMLFactory {
                 .wrapper(
                     .class("main"),
                     .h1(.text(section.title)),
-                    .itemList(for: section.items, on: context.site),
+                    .itemList(
+                        for: section.items,
+                         on: context.site
+                     ),
                     .footer(for: context.site)
-                )
+                ) // wrapper
+                     
             )
+
         )
     }
 
@@ -72,17 +75,13 @@ private struct BWHtmlFactory<Site: Website>: HTMLFactory {
                 .wrapper(
                     .class("main"),
                     .article(
-                        .class("article"),
-                        .div(
-                            .class("content"),
-                            .contentBody(item.body)
-                        ),
+                        .contentBody(item.body),
                         .span("Tagged with: "),
                         .tagList(for: item, on: context.site)
                     )
                     ,
                     .footer(for: context.site)
-                )
+                ) // wrapper
             )
         )
     }
@@ -94,11 +93,11 @@ private struct BWHtmlFactory<Site: Website>: HTMLFactory {
                 .head(for: page, on: context.site),
                 .body(
                     .sidenav(for: context.site as! BarkettWorld),
-                    .div(
+                    .wrapper(
                         .class("main"),
-                        .wrapper(.contentBody(page.body)),
+                        .contentBody(page.body),
                         .footer(for: context.site)
-                    )
+                    ) // wrapper
                 )
             )
         }
@@ -208,19 +207,21 @@ private extension Node where Context == HTML.BodyContext {
         return .ul(
             .class("item-list"),
             .forEach(items) { item in
-                .li(.article(
-                        .img(
-                            .src(item.imagePath ?? "/Images/blogicon.png"),
-                            .attribute(named: "width", value: "50px"),
-                            .attribute(named: "height", value: "50px")
-                        ),
+                .li(
+                    .img(
+                        .src(item.imagePath ?? "/Images/blogicon.png"),
+                        .attribute(named: "width", value: "50px"),
+                        .attribute(named: "height", value: "50px")
+                    ),
+                    .article(
                         .h1(.a(
                             .href(item.path),
                             .text(item.title)
                         )),
                         .tagList(for: item, on: site),
                         .p(.text(item.description))
-                ))
+                )
+                )
             }
         )
     }

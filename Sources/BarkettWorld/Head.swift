@@ -14,7 +14,7 @@ public extension Node where Context == HTML.DocumentContext{
         for location: Location,
         on site: T,
         titleSeparator: String = " | ",
-        stylesheetPaths: [Path] = ["/Themes/styles.css"],
+        stylesheetPaths: [Path] = ["/styles.css"],
         rssFeedPath: Path? = .defaultForRSSFeed,
         rssFeedTitle: String? = nil
     ) -> Node {
@@ -48,7 +48,7 @@ public extension Node where Context == HTML.DocumentContext{
             ),
             .twitterCardType(location.imagePath == nil ? .summary : .summaryLargeImage),
             .forEach(stylesheetPaths, { .stylesheet($0) }),
-            .viewport(.accordingToDevice),
+            .viewport(.accordingToDevice, initialScale: 1.0),
             .unwrap(site.favicon, { .favicon($0) }),
             .unwrap(rssFeedPath, { path in
                 let title = rssFeedTitle ?? "Subscribe to \(site.name)"
